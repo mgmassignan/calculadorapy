@@ -34,3 +34,12 @@ class Calculator:
         self.new_input_required = True
 
 
+import re
+
+def calculate(expression):
+    if re.search(r"(\+\+)", expression):
+        return "Erro"
+    try:
+        return eval(expression)
+    except (SyntaxError, NameError, TypeError, ZeroDivisionError):
+        return "Erro"
